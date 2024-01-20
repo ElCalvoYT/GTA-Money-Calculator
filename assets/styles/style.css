@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+:root{
+    --color-main: #00ca85;
+    --color-white: #fff;
+    --color-light-white: #f2f2f2;
+    --color-black: #000;
+    --color-light-black: #1e1e1e;
+    --color-transparent: rgba(0, 0, 0, 0.2);
+    --color-beige: rgba(241, 216, 177, 0.88);
+
+    --padding: 1rem;
+    --border-radius: 24px;
+
+}
+
+body{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & h1{
+        position: absolute;
+        top: calc(50% - 330px);
+        text-transform: uppercase;
+        font-size: 5vw;
+        letter-spacing: 2px;
+        z-index: -10;
+    }
+
+    & .box{
+        height: 50%;
+        min-width: 200px;
+        width: 50%;
+        padding: var(--padding);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        background: var(--color-light-black);
+        border-radius: var(--border-radius);
+        box-shadow: 0rem 0 3rem var(--color-light-white);
+
+        & .inputs,
+        & .options,
+        & select{
+            width: 90%;
+        }
+
+        & .options{
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+
+            & select{
+                -webkit-appearance: none;
+                appearance: none;
+                position: relative;
+                padding: var(--padding);
+                background: var(--color-transparent);
+                width: 50%;
+                border: none;
+                outline: none;
+                border-radius: var(--border-radius);
+                transition: 0.25s;
+                text-align: center;
+                color: var(--color-white);
+                cursor: pointer;
+            }
+
+            & span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            & input[type="checkbox"]{
+                position: relative;
+                appearance: none;
+                -moz-appearance: none;
+                height: 30px;
+                width: 60px;
+                background: var(--color-transparent);
+                border-radius: var(--border-radius);
+                outline: none;
+                transition: 0.5s;
+                cursor: pointer;
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    height: 30px;
+                    width: 30px;
+                    background: var(--color-white);
+                    border-radius: var(--border-radius);
+                    transition: 0.25s;
+                }
+            }
+
+            & input[type="checkbox"]:checked{
+
+                background: var(--color-main);
+
+                &::before{
+                    transform: translateX(30px);
+                }
+            }
+        }
+
+        & .inputs{
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            & input{
+                appearance: textfield;
+                -webkit-appearance: textfield;
+                width: calc(100% - (var(--padding) * 2));
+                outline: none;
+                border: none;
+                background: var(--color-transparent);
+                border-radius: var(--border-radius);
+                padding: var(--padding);
+                color: var(--color-white);
+                text-align: right;
+                font-size: 18px;
+                transition: 0.25s;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
+
+                &:focus{
+                    transform: translateY(-5px);
+                    border: 2px solid var(--color-main);
+                }
+            }
+
+            & i{
+                rotate: 90deg;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px){
+    body h1{
+        display: none;
+    }
+
+    body .box{
+        width: 70%;
+        height: 70%;
+    }
+
+    body .box .options{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: end;
+
+        & select{
+            width: 100%;
+        }
+    }
+}

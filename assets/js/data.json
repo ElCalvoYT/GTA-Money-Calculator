@@ -1,0 +1,13 @@
+[
+    {
+        "name": "Llave de grifo",
+        "price": 6500,
+        "sellPrice": null
+
+    },
+    {
+        "name": "Deluxo",
+        "price": 5750000,
+        "sellPrice": 3250000
+    }
+]
